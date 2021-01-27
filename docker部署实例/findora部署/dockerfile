@@ -1,0 +1,20 @@
+FROM ubuntu:focal-20210119
+ENV LEDGER_DIR /tmp
+RUN mkdir shared
+WORKDIR /shared
+COPY shared .
+RUN apt update
+RUN apt install openssl -y
+RUN chmod +x run.sh;
+RUN chmod +x tendermint.linux.static-linked.linux
+RUN chmod +x abci_validator_node.linux.gnu.dyn-linked.gnu
+RUN chmod +x query_server.linux.gnu.dyn-linked.dynlinked
+RUN ./tendermint.linux.static-linked.linux init
+RUN cd ../ && rm -rf  /root/.tendermint/config/config.toml
+RUN cd ../../ && ls . && mv ./shared/config.toml /root/.tendermint/config
+EXPOSE 8667
+EXPOSE 8668
+EXPOSE 8669
+EXPOSE 26657
+EXPOSE 26658
+CMD ["sh", "run.sh"]                        
