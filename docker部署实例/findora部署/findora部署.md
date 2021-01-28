@@ -36,7 +36,10 @@
 6. 根据dockerfile 打包镜像
 
         sudo docker build -t ricky/findora:v1 .
+         sudo docker build -t ricky/findora:v6 .
         // 会自动匹配端口对应dockerfile 中的端口
         #sudo docker run -d -P --name findora-v3 ricky/findora:v3
 
         sudo docker run -d -p 8667:8667 -p 26657:26657 -p 26658:26658 -p 8668:8668 -p 8669:8669 --name findora-v1 ricky/findora:v1
+
+        sudo docker run -d -p 8667:8667 -p 26657:26657 -p 26658:26658 -p 8668:8668 -p 8669:8669 --name findora-v6 ricky/findora:v6
