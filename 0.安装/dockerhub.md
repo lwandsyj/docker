@@ -1,6 +1,6 @@
 1. dockerhub 类似node.js 的npm, 和github 一样。提供公共镜像，比如NGINX，mysql 等
 
-用于与您的团队查找和共享容器镜像
+   用于与您的团队查找和共享容器镜像
 
 2. 功能
 
